@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-
+GET		/List						controllers.Application.listTodo(username = "utilisateur")
+GET		/List/:username				controllers.Application.listTodo(username)
+POST	/List						controllers.Application.submitTodo()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

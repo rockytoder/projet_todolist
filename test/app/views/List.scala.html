@@ -1,0 +1,39 @@
+@(todos: List[Todolist], message: String, tweetForm: Form[Todolist])
+
+@main("Todolist") {
+
+    <h1>@message</h1>
+	
+	<h2>Nouveau Todo : </h2>
+	
+	@helper.form(action = routes.Application.submitTodo()) {
+	
+	@helper.inputText(tweetForm("username"))
+	@helper.inputText(tweetForm("todo"))
+	
+	
+	
+	<input type="submit" class="btn primary" value="add !!!">
+	
+	}
+	
+	<h2>Messages</h2>
+	
+	<table class="table table-striped">
+	
+		<tr>
+			<td>nb Todo</td>
+			<td>Username</td>
+			<td>todo</td>
+		</tr>
+		
+	@for((todo, i) <- todos.zipWithIndex) {
+		<tr>
+			<td>@i</td>
+			<td>@todo.username</td>
+			<td>@todo.todd</td>                      
+		</tr>
+	}
+	</table>
+
+}
